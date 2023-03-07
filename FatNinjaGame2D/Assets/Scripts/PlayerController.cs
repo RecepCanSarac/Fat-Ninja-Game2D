@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D playerRB;
     private Vector3 Scale;
     private bool lookRight;
+    private Animator _animator;
     void Start()
     {
         lookRight = true;
         playerRB = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -23,6 +26,7 @@ public class PlayerController : MonoBehaviour
     {
         float horizontalMove = Input.GetAxisRaw("Horizontal");
         playerRB.velocity = new Vector3(horizontalMove * speed * Time.deltaTime,playerRB.velocity.y,0f);
+        _animator.SetFloat("Speed", MathF.Abs(horizontalMove));
         if (horizontalMove > 0 && lookRight == false)
         {
             flip();
