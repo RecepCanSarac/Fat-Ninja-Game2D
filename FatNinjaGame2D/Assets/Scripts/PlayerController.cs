@@ -5,13 +5,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed,jumpForce;
     private Rigidbody2D playerRB;
     private Vector3 Scale;
     private bool lookRight;
     private Animator _animator;
+    [SerializeField] private bool isGrounded;
+
     void Start()
     {
+        isGrounded = false;
         lookRight = true;
         playerRB = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
@@ -20,7 +23,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            playerRB.AddForce(new Vector2(0,jumpForce));
+            isGrounded = false;
+            _animator.SetBool("isGrounded",false);
+        }
     }
     private void FixedUpdate()
     {
@@ -43,5 +51,14 @@ public class PlayerController : MonoBehaviour
         Scale = gameObject.transform.localScale;
         Scale.x = Scale.x * -1;
         gameObject.transform.localScale = Scale; 
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("ground"))
+        {
+            isGrounded = true;
+            _animator.SetBool("isGrounded", true);
+        }
     }
 }
