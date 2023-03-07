@@ -6,8 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed;
     private Rigidbody2D playerRB;
+    private Vector3 Scale;
+    private bool lookRight;
     void Start()
     {
+        lookRight = true;
         playerRB = GetComponent<Rigidbody2D>();
     }
 
@@ -20,5 +23,21 @@ public class PlayerController : MonoBehaviour
     {
         float horizontalMove = Input.GetAxisRaw("Horizontal");
         playerRB.velocity = new Vector3(horizontalMove * speed * Time.deltaTime,playerRB.velocity.y,0f);
+        if (horizontalMove > 0 && lookRight == false)
+        {
+            flip();
+        }
+        else if (horizontalMove < 0 && lookRight == true)
+        {
+            flip();
+        }
+    }
+
+    private void flip()
+    {
+        lookRight = !lookRight;
+        Scale = gameObject.transform.localScale;
+        Scale.x = Scale.x * -1;
+        gameObject.transform.localScale = Scale; 
     }
 }
