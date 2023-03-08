@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 430200463}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -659,8 +659,11 @@ GameObject:
   m_Component:
   - component: {fileID: 747360013}
   - component: {fileID: 747360012}
+  - component: {fileID: 747360014}
+  - component: {fileID: 747360016}
   - component: {fileID: 747360011}
   - component: {fileID: 747360010}
+  - component: {fileID: 747360015}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Untagged
@@ -772,6 +775,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &747360014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747360009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f96da6e6910e8944a9fa37a94c33626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pos1: {x: 2.75, y: -1.25}
+  pos2: {x: 11.28, y: -1.25}
+  leftRightSpeed: 0.2
+--- !u!95 &747360015
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747360009}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2c1ac91885fe8374b97675c8669a0d77, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &747360016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747360009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28acf65b5f40fa646b8e706f697c55ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Distance: 5
+  FallowSpeed: 5
 --- !u!1 &1118051035
 GameObject:
   m_ObjectHideFlags: 0
