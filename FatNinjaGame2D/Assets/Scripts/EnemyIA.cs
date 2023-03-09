@@ -6,19 +6,19 @@ using UnityEngine;
 public class EnemyIA : MonoBehaviour
 {
     public Vector2 pos1, pos2;
-    public float leftRightSpeed;
+    public  float leftRightSpeed;
     private float oldPosition;
     
   
     void Start()
     {
-        
+        leftRightSpeed = 0.2f;
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        
     }
 
     public void EnemyMove()

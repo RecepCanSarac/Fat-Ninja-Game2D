@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -9,12 +10,16 @@ public class MeleeEnemy : MonoBehaviour
     private Transform Target;
     public float FallowSpeed;
     EnemyIA enemyIA;
+    PlayerStat stat;
     public Transform raycastHit;
+    Animator animator;
     void Start()
     {
         Physics2D.queriesStartInColliders = false;
         Target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         enemyIA =GetComponent<EnemyIA>();
+        animator = GetComponent<Animator>();    
+        stat = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerStat>();
     }
 
     
@@ -42,5 +47,25 @@ public class MeleeEnemy : MonoBehaviour
     {
         Vector3 targetPos = new Vector3(Target.position.x, gameObject.transform.position.y, Target.position.x);
         transform.position = Vector2.MoveTowards(transform.position, targetPos, FallowSpeed * Time.deltaTime);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            enemyIA.leftRightSpeed = 0f;
+            FallowSpeed = 0;
+            animator.SetBool("Touched",true);
+           
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        enemyIA.leftRightSpeed = 0.2f;
+        FallowSpeed = 3;
+        animator.SetBool("Touched", false);
+    }
+    public void DamagePlayer()
+    {
+        stat.TakeDamage(15);
     }
 }
