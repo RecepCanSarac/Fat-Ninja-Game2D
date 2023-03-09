@@ -9,6 +9,7 @@ public class MeleeEnemy : MonoBehaviour
     private Transform Target;
     public float FallowSpeed;
     EnemyIA enemyIA;
+    public Transform raycastHit;
     void Start()
     {
         Physics2D.queriesStartInColliders = false;
@@ -24,16 +25,16 @@ public class MeleeEnemy : MonoBehaviour
 
     void EnemyActive()
     {
-        RaycastHit2D enemyActive = Physics2D.Raycast(transform.position, transform.right,Distance);
+        RaycastHit2D enemyActive = Physics2D.Raycast(raycastHit.position, transform.right,Distance);
 
         if (enemyActive.collider != null)
         {
-            Debug.DrawLine(transform.position,enemyActive.point, Color.red);
+            Debug.DrawLine(raycastHit.position,enemyActive.point, Color.red);
             EnemyFallow();
         }
         if (enemyActive.collider == null)
         {
-            Debug.DrawLine(transform.position, enemyActive.point, Color.green);
+            Debug.DrawLine(raycastHit.position, enemyActive.point, Color.green);
             enemyIA.EnemyMove();
         }
     }
