@@ -52,7 +52,7 @@ public class MeleeEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            enemyIA.leftRightSpeed = 0f;
+            enemyIA.speed = 0;
             FallowSpeed = 0;
             animator.SetBool("Touched",true);
            
@@ -60,7 +60,7 @@ public class MeleeEnemy : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        enemyIA.leftRightSpeed = 0.2f;
+        enemyIA.speed = 1;
         FallowSpeed = 3;
         animator.SetBool("Touched", false);
     }

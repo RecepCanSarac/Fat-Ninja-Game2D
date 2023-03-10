@@ -1,39 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 
 public class EnemyIA : MonoBehaviour
 {
-    public Vector2 pos1, pos2;
-    public  float leftRightSpeed;
-    private float oldPosition;
+    public  float speed;
+    public float distance;
+    private bool moveinRight = true;
+    public Transform groundControl;
     
   
     void Start()
     {
-        leftRightSpeed = 0.2f;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void EnemyMove()
     {
-        transform.position = Vector3.Lerp(pos1,pos2,Mathf.PingPong(Time.time * leftRightSpeed,1.0f));
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
+        RaycastHit2D ground = Physics2D.Raycast(groundControl.position,Vector2.down, distance);
 
-        if (transform.position.x > oldPosition)
+        if (ground.collider == true)
         {
-            transform.localRotation = Quaternion.Euler(0,0,0);
+            transform.Rotate(0,0,0);
         }
-        if (transform.position.x < oldPosition)
+        else if(ground.collider == false)
         {
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
+            transform.Rotate(0, 180, 0);
         }
-        oldPosition = transform.position.x; 
     }
 
    
