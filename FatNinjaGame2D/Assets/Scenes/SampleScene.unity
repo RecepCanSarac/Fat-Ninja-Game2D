@@ -649,6 +649,37 @@ MonoBehaviour:
   FallowSpeed: 3.8
   yOffset: 2
   Target: {fileID: 430200461}
+--- !u!1 &608995730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 608995731}
+  m_Layer: 0
+  m_Name: GroundControl
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &608995731
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 608995730}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.639, y: -0.66, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 747360013}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &747360009
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,11 +799,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747360009}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.51, y: -1.21, z: 0}
+  m_LocalPosition: {x: 6.51, y: -1.36, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 880035967}
+  - {fileID: 608995731}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -788,9 +820,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f96da6e6910e8944a9fa37a94c33626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pos1: {x: 2.75, y: -1.25}
-  pos2: {x: 11.28, y: -1.25}
-  leftRightSpeed: 0.2
+  speed: 1
+  distance: 0.5
+  groundControl: {fileID: 608995731}
 --- !u!95 &747360015
 Animator:
   serializedVersion: 5
