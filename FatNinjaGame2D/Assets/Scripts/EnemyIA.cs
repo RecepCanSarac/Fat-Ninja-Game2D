@@ -21,7 +21,7 @@ public class EnemyIA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        EnemyMove();
     }
 
     public void EnemyMove()
