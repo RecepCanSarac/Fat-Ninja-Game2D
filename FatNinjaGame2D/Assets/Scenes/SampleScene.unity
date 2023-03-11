@@ -237,7 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 173004115}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BombPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 173004114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7, y: 0.01, z: 0}
+  m_LocalPosition: {x: 0.774, y: 0.225, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -268,7 +268,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 268997834}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GroundControl
   m_TagString: Untagged
   m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 430200459}
   - component: {fileID: 430200462}
   - component: {fileID: 430200463}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: 532204511}
   - component: {fileID: 532204510}
   - component: {fileID: 532204512}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BombEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -808,7 +808,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 532204506}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 64.513435, y: 2.77, z: 0}
+  m_LocalPosition: {x: 64.772, y: 2.748, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -889,9 +889,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 5
   target: {fileID: 430200461}
-  bomb: {fileID: 1034666861277845617, guid: a466c16f88ff6334cb1fd68c5b0526dc, type: 3}
+  bomb: {fileID: 5340919525028565353, guid: c31c69cd9a1aab042b3242c0a052ab89, type: 3}
   bombPoint: {fileID: 173004115}
-  Force: 100
+  Force: 50
   FireRate: 3
 --- !u!1 &608995730
 GameObject:
@@ -902,7 +902,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 608995731}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundControl
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
@@ -939,7 +939,7 @@ GameObject:
   - component: {fileID: 720290063}
   - component: {fileID: 720290062}
   - component: {fileID: 720290061}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MeleeEnemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1118,7 +1118,7 @@ GameObject:
   - component: {fileID: 747360011}
   - component: {fileID: 747360010}
   - component: {fileID: 747360015}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MeleeEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1291,7 +1291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 880035967}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RaycastHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139213,7 +139213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1357013741}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RaycastHit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139421,7 +139421,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1851075369}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundControl
   m_TagString: Untagged
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}

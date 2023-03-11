@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TNTScripts : MonoBehaviour
@@ -15,16 +16,13 @@ public class TNTScripts : MonoBehaviour
     }
     void Start()
     {
-        
+        StartCoroutine(Týmer());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            explode();
-        }
+       
        
     }
     void explode()
@@ -36,5 +34,14 @@ public class TNTScripts : MonoBehaviour
             Vector2 Direction = ray.transform.position - transform.position;
             ray.GetComponent<Rigidbody2D>().AddForce(Direction * Force);
         }
+    }
+
+    IEnumerator Týmer()
+    {
+        yield return new WaitForSeconds(1);
+        explode();
+        Destroy(gameObject);
+        yield return new WaitForSeconds(0.1f);
+
     }
 }

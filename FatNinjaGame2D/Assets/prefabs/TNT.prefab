@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 1
-  Force: 50
+  Force: 100
   LayerHit:
     serializedVersion: 2
     m_Bits: 200
