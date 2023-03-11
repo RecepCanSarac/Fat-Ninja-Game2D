@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class BombingEnemy : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class BombingEnemy : MonoBehaviour
     public float Force;
     public float FireRate;
     private float nextTimeToFire = 0;
+    Animator animator;
+    EnemyIA enemyIA;
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
@@ -20,7 +23,8 @@ public class BombingEnemy : MonoBehaviour
     }
     void Start()
     {
-        
+        enemyIA = GetComponent<EnemyIA>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -52,6 +56,8 @@ public class BombingEnemy : MonoBehaviour
             {
                 Debug.Log("Diþarida");
                 Detected = false;
+                animator.SetBool("inside", false);
+                enemyIA.speed = 1;
             }
         }
         if (Detected)
@@ -59,7 +65,9 @@ public class BombingEnemy : MonoBehaviour
             if (Time.time > nextTimeToFire)
             {
                 nextTimeToFire = Time.time + 1 / FireRate;
-                Shoot();
+                animator.SetBool("inside",true);
+                enemyIA.speed = 0;          
+            
             }
         }
     }
