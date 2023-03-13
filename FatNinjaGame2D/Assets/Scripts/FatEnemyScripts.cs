@@ -12,6 +12,9 @@ public class FatEnemyScripts : MonoBehaviour
     EnemyIA enemyIA;
     Vector2 direction;
     private bool Detected = false;
+    Rigidbody2D enemyRB;
+    public float Force;
+    private int JumpNum;
 
     private void OnDrawGizmos()
     {
@@ -22,6 +25,7 @@ public class FatEnemyScripts : MonoBehaviour
     {
         Physics2D.queriesStartInColliders = false;
         enemyIA = GetComponent<EnemyIA>();
+        enemyRB = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -66,6 +70,7 @@ public class FatEnemyScripts : MonoBehaviour
                 {
                     Detected = true;
                     Debug.Log("Ýçeride");
+                    FallowSpeed = 0;
                 }
             }
             else
@@ -74,11 +79,21 @@ public class FatEnemyScripts : MonoBehaviour
                 {
                     Detected = false;
                     Debug.Log("Diþarýda");
+                    JumpNum = 0;
                 }
             }
 
         }
 
+        if (Detected == true)
+        {
+            if (JumpNum == 0)
+            {
+                FallowSpeed = 1.5f;
+                enemyRB.AddForce(direction * Force);
+                JumpNum = 1;
+            }
+        }
 
     }
 }
