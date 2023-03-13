@@ -6,9 +6,16 @@ using static UnityEngine.GraphicsBuffer;
 public class FatEnemyScripts : MonoBehaviour
 {
     public float Distance;
+    public float Radius;
     public Transform Target;
     public float FallowSpeed;
     EnemyIA enemyIA;
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position,Radius);
+    }
     void Start()
     {
         Physics2D.queriesStartInColliders = false;

@@ -139696,5 +139696,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Distance: 10
+  Radius: 5
   Target: {fileID: 430200461}
   FallowSpeed: 1.5
