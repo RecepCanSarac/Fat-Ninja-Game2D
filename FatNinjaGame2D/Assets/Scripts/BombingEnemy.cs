@@ -74,7 +74,7 @@ public class BombingEnemy : MonoBehaviour
 
     void Shoot()
     {
-       GameObject Bomb =  Instantiate(bomb,bombPoint.position,Quaternion.identity);
+        GameObject Bomb =  Instantiate(bomb,bombPoint.position,Quaternion.identity);
         Bomb.GetComponent<Rigidbody2D>().AddForce(direction * Force);
         Bomb.GetComponent<Rigidbody2D>().AddForce(transform.up * 250);
     }
