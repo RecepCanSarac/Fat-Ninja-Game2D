@@ -48,6 +48,7 @@ public class FatEnemyScripts : MonoBehaviour
         {
             Debug.DrawLine(transform.position, trigger.point, Color.green);
             enemyIA.EnemyMove();
+            Detected = false;
         }
     }
     void EnemyFallow()
