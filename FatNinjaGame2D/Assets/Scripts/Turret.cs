@@ -6,8 +6,15 @@ public class Turret : MonoBehaviour
 {
     public float Radius;
     public Transform Target;
+    public Transform Gun;
+    public Transform shootPoint;
     Vector2 Direction;
     private bool Detected = false;
+    public float fireRate;
+    private float nextTimeFireRate;
+    public GameObject bullet;
+    public float Force;
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
@@ -47,6 +54,22 @@ public class Turret : MonoBehaviour
                     Detected = false;
                 }
             }
+            if (Detected == true)
+            {
+                if (Time.time > nextTimeFireRate)
+                {
+                    Gun.right = -Target.position;
+                    nextTimeFireRate = Time.time + 1 / fireRate;
+                    Shoot();
+                }
+            }
         }
+    }
+
+    private void Shoot()
+    {
+        GameObject newBullet =  Instantiate(bullet,shootPoint.position,Quaternion.identity);
+        newBullet.GetComponent<Rigidbody2D>().AddForce(Direction * Force);
+        Destroy(newBullet,2f);
     }
 }
