@@ -16,10 +16,6 @@ public class PlayerStat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            TakeDamage(20);
-        }
     }
 
     public void TakeDamage(int damage)

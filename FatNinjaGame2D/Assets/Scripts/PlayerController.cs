@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private bool lookRight;
     private Animator _animator;
     [SerializeField] private bool isGrounded;
+    PlayerStat playerSTAT;
 
     void Start()
     {
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
         lookRight = true;
         playerRB = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+        playerSTAT = GetComponent<PlayerStat>();
     }
 
     // Update is called once per frame
@@ -59,6 +61,13 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             _animator.SetBool("isGrounded", true);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("TurretBullet"))
+        {
+            playerSTAT.TakeDamage(12);
         }
     }
 }
