@@ -14,7 +14,7 @@ public class PlayerStat : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (currentHealth <= 0)
